@@ -1,57 +1,29 @@
-import 'package:oop1/teilnehmer.dart';
+import 'cdemy.dart';
+import 'teilnehmer.dart';
 
 void main() {
-  List<Teilnehmer> teilnehmer = [];
-
-  teilnehmer.add(
-    Teilnehmer(
-      vorname: "Kevin",
-      nachname: "Stiebich",
-      geburtstag: DateTime(1992, 12, 23),
-    ),
+  var tn1 = Teilnehmer(
+    vorname: "Kevin",
+    nachname: "Stiebich",
+    geschlecht: Geschlecht.m,
   );
 
-  teilnehmer.add(
-    Teilnehmer(
-      vorname: "Manuel",
-      nachname: "Perez²",
-      abschlussnote: 4,
-      hatBestanden: true,
-    ),
+  var tn2 = Teilnehmer(
+    vorname: "Eric",
+    nachname: "Gro",
+    geschlecht: Geschlecht.m,
   );
 
-  teilnehmer.add(
-    Teilnehmer(
-      vorname: "Joshua",
-      nachname: "Moore",
-      abschlussnote: 8,
-      hatBestanden: false,
-    ),
+  var tn3 = Teilnehmer(
+    vorname: "Franklin",
+    nachname: "Moore",
+    geschlecht: Geschlecht.m,
   );
 
-  for (Teilnehmer i in teilnehmer) {
-    print("${i.vorname} ${i.nachname}");
-    i.geburtstag != null
-        ? print("Geboren am ${i.geburtstag}")
-        : print("Der Teilnehmer verheimlicht seinen Geburtstag.");
-    i.abschlussnote != null
-        ? print("Abschlussnote: ${i.abschlussnote}")
-        : print("Der Teilnehmer hat noch keine Abschlussnote.");
-    i.hatBestanden
-        ? print("Der Teilnehmer hat die Prüfung bestanden.")
-        : print("Der Teilnehmer hat die Prüfung (noch) nicht bestanden.");
-  }
+  var kurs1 = Kurs(name: "Kurs für Menschen", teilnehmer: [tn1, tn2]);
+  var kurs2 = Kurs(name: "Kurs für Hunde", teilnehmer: [tn3]);
 
-  /* for (int i = 0; i < teilnehmer.length; i++) {
-    print("${teilnehmer[i].vorname} ${teilnehmer[i].nachname}");
-    teilnehmer[i].geburtstag != null
-        ? print("Geboren am ${teilnehmer[i].geburtstag}")
-        : print("Der Teilnehmer verheimlicht seinen Geburtstag.");
-    teilnehmer[i].abschlussnote != null
-        ? print("Abschlussnote: ${teilnehmer[i].abschlussnote}")
-        : print("Der Teilnehmer hat noch keine Abschlussnote.");
-    teilnehmer[i].hatBestanden
-        ? print("Der Teilnehmer hat die Prüfung bestanden.")
-        : print("Der Teilnehmer hat die Prüfung (noch) nicht bestanden.");
-  } */
+  var cdemy = Cdemy(kurse: [kurs1, kurs2]);
+
+  print(cdemy.kurse.length);
 }
